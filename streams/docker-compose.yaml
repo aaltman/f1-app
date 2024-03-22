@@ -63,3 +63,13 @@ services:
       - 8080:8080
     depends_on:
       - redpanda-0
+      
+  mongodb:
+    image : mongo
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: test
+    ports:
+      - 27017:27017
+    restart: unless-stopped
